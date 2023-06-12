@@ -63,17 +63,17 @@ export default function CommentsPage({ tweetData }) {
             </div>
           </div>
 
-          <div className="flex justify-between items-center border-b border-gray-700 p-2">
+          <div className="flex justify-between items-center border-b border-gray-700 p-2 cursor-not-allowed">
             <div className="flex justify-center items-center p-1 space-x-2">
               <img
                 className="w-12 h-12 rounded-full object-cover"
                 src={user.photoUrl}
               />
-              <h1 className="text-lg text-gray-500 cursor-default">Tweet your reply</h1>
+              <h1 className="text-lg text-gray-500">Tweet your reply</h1>
             </div>
             <button
               disabled={true}
-              className="bg-[#1d9bf0] rounded-full px-4 py-1.5 disabled:opacity-50"
+              className="bg-[#1d9bf0] rounded-full px-4 py-1.5 disabled:opacity-50 cursor-not-allowed"
             >
               Tweet
             </button>

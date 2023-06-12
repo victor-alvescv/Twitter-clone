@@ -61,7 +61,9 @@ export default function Trending() {
               <h1 className="text-[12px] mt-1 text-gray-500">@davidbragg</h1>
             </div>
           </div>
-          <button className="bg-white text-black text-sm w-20 rounded-3xl font-bold h-8">Follow</button>
+          <button className="bg-white text-black text-sm w-20 rounded-3xl font-bold h-8">
+            Follow
+          </button>
         </div>
         <div className="flex justify-between p-3">
           <div className="flex space-x-3">
@@ -77,7 +79,9 @@ export default function Trending() {
               <h1 className="text-[12px] mt-1 text-gray-500">@elonmusk</h1>
             </div>
           </div>
-          <button className="bg-white text-black text-sm w-20 rounded-3xl font-bold h-8">Follow</button>
+          <button className="bg-white text-black text-sm w-20 rounded-3xl font-bold h-8">
+            Follow
+          </button>
         </div>
         <div className="flex justify-between p-3">
           <div className="flex space-x-3">
@@ -93,7 +97,9 @@ export default function Trending() {
               <h1 className="text-[12px] mt-1 text-gray-500">@KylieJenner</h1>
             </div>
           </div>
-          <button className="bg-white text-black text-sm w-20 rounded-3xl font-bold h-8">Follow</button>
+          <button className="bg-white text-black text-sm w-20 rounded-3xl font-bold h-8">
+            Follow
+          </button>
         </div>
       </div>
     </div>

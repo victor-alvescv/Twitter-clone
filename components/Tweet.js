@@ -31,16 +31,16 @@ export default function Tweet({ data, id }) {
   const [comments, setComments] = useState([]);
 
   async function deleteTweet(e) {
-        e.stopPropagation()
-        await deleteDoc(doc(db, 'posts', id))
+    e.stopPropagation();
+    await deleteDoc(doc(db, "posts", id));
   }
-  
+
   async function likeComment(e) {
     e.stopPropagation();
 
     if (!user.username) {
-      dispatch(openLoginModal())
-      return
+      dispatch(openLoginModal());
+      return;
     }
 
     if (likes.includes(user.uid)) {
@@ -59,10 +59,10 @@ export default function Tweet({ data, id }) {
 
     const unsubscribe = onSnapshot(doc(db, "posts", id), (doc) => {
       setLikes(doc.data()?.likes);
-      setComments(doc.data()?.comments)
+      setComments(doc.data()?.comments);
     });
 
-    return unsubscribe
+    return unsubscribe;
   }, []);
 
   return (
@@ -79,13 +79,14 @@ export default function Tweet({ data, id }) {
         image={data?.image}
       />
       <div className="p-3 ml-16 text-gray-500 flex space-x-14">
-        <div className="flex justify-center items-center space-x-2"
+        <div
+          className="flex justify-center items-center space-x-2"
           onClick={(e) => {
             e.stopPropagation();
 
             if (!user.username) {
-              dispatch(openLoginModal())
-              return
+              dispatch(openLoginModal());
+              return;
             }
 
             dispatch(
@@ -101,9 +102,14 @@ export default function Tweet({ data, id }) {
           }}
         >
           <ChatIcon className="w-5 cursor-pointer transition-all hover:text-green-400" />
-          {comments?.length > 0 && <span className="text-xs">{comments?.length}</span>}
+          {comments?.length > 0 && (
+            <span className="text-xs">{comments?.length}</span>
+          )}
         </div>
-        <div className="flex justify-center items-center space-x-2" onClick={likeComment}>
+        <div
+          className="flex justify-center items-center space-x-2"
+          onClick={likeComment}
+        >
           {likes?.includes(user.uid) ? (
             <FilledHeartIcon className="w-5 cursor-pointer transition-all hover:text-pink-500" />
           ) : (
@@ -111,9 +117,14 @@ export default function Tweet({ data, id }) {
           )}
           {likes?.length > 0 && <span className="text-xs">{likes.length}</span>}
         </div>
-        {user.uid === data?.uid && (<div className="cursor-pointer hover:text-red-600" onClick={deleteTweet}>
-          <TrashIcon className="w-5" />
-        </div>)}
+        {user.uid === data?.uid && (
+          <div
+            className="cursor-pointer hover:text-red-600"
+            onClick={deleteTweet}
+          >
+            <TrashIcon className="w-5" />
+          </div>
+        )}
         <ChartBarIcon className="w-5 cursor-not-allowed" />
         <UploadIcon className="w-5 cursor-not-allowed" />
       </div>
@@ -121,7 +132,14 @@ export default function Tweet({ data, id }) {
   );
 }
 
-export function TweetHeader({ username, name, timestamp, text, photoUrl, image }) {
+export function TweetHeader({
+  username,
+  name,
+  timestamp,
+  text,
+  photoUrl,
+  image,
+}) {
   return (
     <div className="flex space-x-3 p-3">
       <img
@@ -133,10 +151,17 @@ export function TweetHeader({ username, name, timestamp, text, photoUrl, image }
           <h1 className="text-white font-bold truncate">{name}</h1>
           <span className="truncate">@{username}</span>
           <div className="w-1 h-1 bg-gray-500 rounded-full"></div>
-          <Moment className="" fromNow>{timestamp}</Moment>
+          <Moment className="" fromNow>
+            {timestamp}
+          </Moment>
         </div>
         <span>{text}</span>
-        {image && <img className="object-cover rounded-md mt-3 max-h-80 border border-gray-700" src={image} />}
+        {image && (
+          <img
+            className="object-cover rounded-md mt-3 max-h-80 border border-gray-700"
+            src={image}
+          />
+        )}
       </div>
     </div>
   );
