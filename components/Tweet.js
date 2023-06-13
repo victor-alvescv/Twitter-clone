@@ -122,7 +122,7 @@ export default function Tweet({ data, id }) {
             className="cursor-pointer hover:text-red-600"
             onClick={deleteTweet}
           >
-            <TrashIcon className="w-5" />
+            <TrashIcon className="w-5 transition-all" />
           </div>
         )}
         <ChartBarIcon className="w-5 cursor-not-allowed" />
